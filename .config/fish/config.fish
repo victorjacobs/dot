@@ -26,6 +26,10 @@ function m2d
     perl -e "print scalar localtime($argv / 1000)"
 end
 
+function d2m
+    python -c 'from time import time; print int(round(time() * 1000))'
+end
+
 function projects
     cd ~/Projects
     if count $argv > /dev/null
