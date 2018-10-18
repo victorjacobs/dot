@@ -40,3 +40,7 @@ end
 function mvn-install
     mvn clean install -U -pl $argv -am -Dmaven.test.skip=true
 end
+
+function gb
+    git checkout $argv[1] 2> /dev/null ;or git checkout -b $argv[1]
+end
