@@ -19,6 +19,7 @@ alias ls "exa -l"
 alias gim "git co master; git pull"
 alias cat "bat"
 alias config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias gpr "git push; git pull-request"
 
 eval (hub alias -s)
 
