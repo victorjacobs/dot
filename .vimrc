@@ -26,12 +26,17 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 
 " Always show current position
 set ruler
+set updatetime=100
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
