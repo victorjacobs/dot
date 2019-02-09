@@ -12,5 +12,5 @@ This repository contains my dot files for:
 2. Generate SSH key and add it to GitHub account
 3. Run following:
 ```bash
-curl -Lks https://victorjacobs.me/dot.sh | bash
+curl -Lks victorjacobs.me/dot.sh | bash
 ```
