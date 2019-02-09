@@ -15,24 +15,25 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     endif
 endif
 
-
 call plug#begin()
 
 Plug 'vim-scripts/peaksea'
 Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
-Plug 'terryma/vim-expand-region'
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-fugitive'
+
+if has('mac')
+    Plug 'terryma/vim-expand-region'
+    Plug 'junegunn/fzf', { 'do': './install --bin' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'tpope/vim-fugitive'
+endif
 
 call plug#end()
-
 
 " Always show current position
 set ruler
