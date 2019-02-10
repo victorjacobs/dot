@@ -8,7 +8,7 @@ This repository contains my dot files for:
 
 ## Installation
 
-1. Install git
+1. Install git and curl
 2. Generate SSH key and add it to GitHub account
 3. Run following:
 ```bash
