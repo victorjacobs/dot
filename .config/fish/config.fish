@@ -1,11 +1,22 @@
-set -gx PATH /Users/Victor/bin /Users/Victor/go/bin $PATH
 set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
-set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
-set -gx GOPATH "/Users/Victor/go"
-set -gx GOBIN "$GOPATH/bin"
+
+if test -e /usr/libexec/java_home
+    set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+end
+
+if test -d $HOME/bin
+    set -gx PATH $HOME/bin $PATH
+end
+
+if test -d $HOME/go
+    set -gx PATH $HOME/go/bin $PATH
+    set -gx GOPATH $HOME/go
+    set -gx GOBIN $GOPATH/bin
+end
+
 set -g theme_display_date no
 
 alias dc "docker-compose"
@@ -15,13 +26,25 @@ alias dit "docker exec -it"
 alias drm "docker run --rm -it"
 alias gic "git clone"
 alias gip "git pull"
-alias ls "exa -l"
-alias gim "git co master; git pull"
-alias cat "bat"
-alias config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias gpr "git push; git pull-request"
 
-eval (hub alias -s)
+if type -q exa
+    alias ls "exa -l"
+else
+    alias ls "ls --color=auto -l"
+end
+
+alias gim "git co master; git pull"
+
+if type -q bat
+    alias cat "bat"
+end
+
+alias config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
+if type -q hub
+    alias gpr "git push; git pull-request"
+    eval (hub alias -s)
+end
 
 function m2d
     perl -e "print scalar localtime($argv / 1000)"

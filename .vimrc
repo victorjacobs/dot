@@ -1,3 +1,8 @@
+" If shell is fish, set shell to something more standard
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
 " Install plug if it doesn't exist
 if empty(glob('~/.vim/autoload/plug.vim'))
     let plugVersion = '0.10.0'
@@ -22,6 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-markdown'
+Plug 'dag/vim-fish'
 
 if has('mac')
     Plug 'terryma/vim-expand-region'
