@@ -28,6 +28,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-markdown'
 Plug 'dag/vim-fish'
+Plug 'scrooloose/nerdtree'
 
 if has('mac')
     Plug 'terryma/vim-expand-region'
@@ -138,12 +139,14 @@ noremap <leader>nn :setlocal number!<cr>
 noremap <leader>rn :setlocal relativenumber!<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap t :Files<cr>
+noremap <C-o> :NERDTreeToggle<cr>
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 command! W w !sudo tee % > /dev/null
 
+" Helper functions
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
     execute "normal! vgvy"
