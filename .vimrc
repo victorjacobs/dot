@@ -38,6 +38,7 @@ if has('mac')
     Plug 'airblade/vim-gitgutter'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'tpope/vim-fugitive'
+    Plug 'xuyuanp/nerdtree-git-plugin'
 endif
 
 call plug#end()
@@ -85,6 +86,9 @@ let g:lightline = {
             \ 'separator': { 'left': ' ', 'right': ' ' },
             \ 'subseparator': { 'left': ' ', 'right': ' ' }
             \ }
+
+" Quit NERDTree on opening file
+let NERDTreeQuitOnOpen = 1
 
 " Cursor shapes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
