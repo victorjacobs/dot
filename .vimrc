@@ -54,7 +54,7 @@ set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
 set cmdheight=2
 colorscheme peaksea
 syntax enable
-" Set 7 lines aroun the cursor
+" Set 7 lines around the cursor
 set so=7
 " Add a bit extra margin to the left
 " set foldcolumn=1
@@ -143,3 +143,20 @@ vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 command! W w !sudo tee % > /dev/null
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
