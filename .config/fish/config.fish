@@ -85,3 +85,7 @@ end
 function gb
     git checkout $argv[1] 2> /dev/null ;or git checkout -b $argv[1]
 end
+
+if test -e $HOME/.config/fish/config.local.fish
+    source $HOME/.config/fish/config.local.fish
+end
