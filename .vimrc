@@ -39,6 +39,7 @@ if has('mac')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'tpope/vim-fugitive'
     Plug 'xuyuanp/nerdtree-git-plugin'
+    Plug 'mbbill/undotree'
 endif
 
 call plug#end()
@@ -144,6 +145,7 @@ noremap <leader>rn :setlocal relativenumber!<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap t :Files<cr>
 noremap <C-o> :NERDTreeToggle<cr>
+nnoremap <F5> :UndotreeToggle<cr>
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
