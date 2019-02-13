@@ -4,15 +4,18 @@
     email = victor.jacobs@me.com
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
 [alias]
     co = checkout
     ci = commit
     st = status
     br = branch
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    type = cat-file -t
-    dump = cat-file -p
     lo = log --oneline
+    dt = difftool
+    df = diff
 [push]
     default = current
 [url "git@github.com:"]
