@@ -147,6 +147,10 @@ nnoremap <leader>w :w!<cr>
 nnoremap t :Files<cr>
 noremap <C-o> :NERDTreeToggle<cr>
 nnoremap <F5> :UndotreeToggle<cr>
+
+autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
+autocmd FileType go map <F1> <Plug>(go-doc)
+
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
