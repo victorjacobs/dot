@@ -118,7 +118,7 @@ set nowb
 set noswapfile
 
 try
-	silent !mkdir -p ~/.vim/temp_dirs/undodir > /dev/null 2>&1
+    silent !mkdir -p ~/.vim/temp_dirs/undodir > /dev/null 2>&1
     set undodir=~/.vim/temp_dirs/undodir
     set undofile
 catch
