@@ -59,6 +59,9 @@ colorscheme peaksea
 syntax enable
 " Set 7 lines around the cursor
 set so=7
+" Cursorline
+set cursorline
+autocmd ColorScheme * hi CursorLine cterm=none ctermbg=236
 " Add a bit extra margin to the left
 " set foldcolumn=1
 set background=dark
