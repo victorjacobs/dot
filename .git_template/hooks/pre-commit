@@ -1,0 +1,40 @@
+#!/bin/bash
+git_add_changed_to_index() {
+    git diff --name-only --cached | xargs git add
+}
+
+changed_files=$(git diff --name-only --cached --relative)
+
+kt_files=$(echo "$changed_files" | grep '\.kt[s"]\?$')
+if command -v ktlint > /dev/null 2>&1 && [[ ! -z $kt_files ]]; then
+    echo "Running ktlint formatter..."
+
+    ktlint -F --relative . $kt_files
+    if [ $? -ne 0 ]; then exit 1; fi
+
+    git_add_changed_to_index
+fi
+
+tf_files=$(echo "$changed_files" | grep '\.tf\?$')
+if command -v terraform > /dev/null 2>&1 && [[ ! -z $tf_files ]]; then
+    echo "Running terraform fmt..."
+
+    for file in ${tf_files}; do
+        terraform fmt $file
+        if [ $? -ne 0 ]; then exit 1; fi
+    done
+
+    git_add_changed_to_index
+fi
+
+go_files=$(echo "$changed_files" | grep '\.go\?$')
+if command -v go > /dev/null 2>&1 && [[ ! -z $go_files ]]; then
+    echo "Running go fmt"
+
+    go fmt $go_files
+    if [ $? -ne 0 ]; then exit 1; fi
+
+    git_add_changed_to_index
+fi
+
+exit 0
