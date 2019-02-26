@@ -40,6 +40,8 @@ if has('mac')
     Plug 'tpope/vim-fugitive'
     Plug 'xuyuanp/nerdtree-git-plugin'
     Plug 'mbbill/undotree'
+    Plug 'hashivim/vim-terraform'
+    Plug 'udalov/kotlin-vim'
 endif
 
 call plug#end()
