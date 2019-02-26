@@ -1,0 +1,2 @@
+#!/bin/bash
+uuidgen | tr "[:upper:]" "[:lower:]" | tee >(xargs echo -n | pbcopy)

@@ -1,0 +1,14 @@
+#!/bin/bash
+repo_path=$1
+hooks_to_remove=$(ls "$HOME/.git_template/hooks")
+
+if [[ ! -d "$repo_path/.git" ]]; then
+    echo "ERROR: $repo_path isn't a git repository"
+    exit 1
+fi
+
+cd $repo_path/.git/hooks
+echo "Removing git hooks to install new ones:"
+rm -v $hooks_to_remove
+cd ../..
+git init

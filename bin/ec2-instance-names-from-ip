@@ -1,0 +1,2 @@
+#!/bin/bash
+aws ec2 describe-instances --filter Name=private-ip-address,Values=$1 | jq ".Reservations | .[].Instances | .[].Tags | map(select(.Key == \"group\")) | .[0].Value" | sort | uniq
