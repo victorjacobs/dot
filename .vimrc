@@ -30,6 +30,7 @@ Plug 'tpope/vim-markdown'
 Plug 'dag/vim-fish'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-visual-star-search'
+Plug 'elzr/vim-json'
 
 if has('mac')
     Plug 'terryma/vim-expand-region'
@@ -43,7 +44,8 @@ if has('mac')
     Plug 'mbbill/undotree'
     Plug 'hashivim/vim-terraform'
     Plug 'udalov/kotlin-vim'
-    Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
+    Plug 'janko-m/vim-test'
 endif
 
 call plug#end()
@@ -97,6 +99,10 @@ let g:lightline = {
 
 " Quit NERDTree on opening file
 let NERDTreeQuitOnOpen = 1
+
+" Use quickfix list for ALE
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 " Cursor shapes
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -158,8 +164,13 @@ noremap H ^
 noremap L g_
 nnoremap K <nop>
 
-autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
-autocmd FileType go map <F1> <Plug>(go-doc)
+if has('mac')
+	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+	nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+	autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
+	autocmd FileType go map <F1> <Plug>(go-doc)
+end
 
 command! W w !sudo tee % > /dev/null
 
