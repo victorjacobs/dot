@@ -43,6 +43,7 @@ if has('mac')
     Plug 'mbbill/undotree'
     Plug 'hashivim/vim-terraform'
     Plug 'udalov/kotlin-vim'
+    Plug 'scrooloose/syntastic'
 endif
 
 call plug#end()
@@ -153,6 +154,9 @@ nnoremap <leader>w :w!<cr>
 nnoremap t :Files<cr>
 noremap <C-o> :NERDTreeToggle<cr>
 nnoremap <F5> :UndotreeToggle<cr>
+noremap H ^
+noremap L g_
+nnoremap K <nop>
 
 autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
 autocmd FileType go map <F1> <Plug>(go-doc)
