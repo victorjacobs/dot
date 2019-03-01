@@ -29,6 +29,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-markdown'
 Plug 'dag/vim-fish'
 Plug 'scrooloose/nerdtree'
+Plug 'bronson/vim-visual-star-search'
 
 if has('mac')
     Plug 'terryma/vim-expand-region'
@@ -156,26 +157,5 @@ nnoremap <F5> :UndotreeToggle<cr>
 autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
 autocmd FileType go map <F1> <Plug>(go-doc)
 
-" Visual mode pressing * or # searches for the current selection
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
 command! W w !sudo tee % > /dev/null
 
-" Helper functions
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", "\\/.*'$^~[]")
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
