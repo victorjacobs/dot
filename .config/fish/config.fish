@@ -47,7 +47,7 @@ alias gip "git pull"
 if type -q exa
     alias ls "exa -l"
 else
-    alias ls "ls --color=auto -l"
+    alias ls "ls --color=auto -lh"
 end
 
 alias gim "git co master; git pull"
