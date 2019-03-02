@@ -20,6 +20,8 @@ set -x LANGUAGE en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
+set -g theme_display_date no
+
 if test -e /usr/libexec/java_home
     set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 end
@@ -34,8 +36,6 @@ if test -d $HOME/go
     set -gx GOBIN $GOPATH/bin
 end
 
-set -g theme_display_date no
-
 alias dc "docker-compose"
 alias d "docker"
 alias dl "docker ps -l -q"
@@ -43,14 +43,13 @@ alias dit "docker exec -it"
 alias drm "docker run --rm -it"
 alias gic "git clone"
 alias gip "git pull"
+alias gim "git co master; git pull"
 
 if type -q exa
     alias ls "exa -l"
 else
     alias ls "ls --color=auto -lh"
 end
-
-alias gim "git co master; git pull"
 
 if type -q bat
     alias cat "bat"
