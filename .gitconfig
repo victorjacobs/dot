@@ -2,6 +2,9 @@
 [user]
     name = Victor Jacobs
     email = victor.jacobs@me.com
+    signingkey = B490B254BDB9D657B7D6695B1B14FF4E55A4EB54
+[commit]
+    gpgsign = true
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
     editor = vim
