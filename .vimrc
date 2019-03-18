@@ -46,6 +46,8 @@ if has('mac')
     Plug 'udalov/kotlin-vim'
     Plug 'w0rp/ale'
     Plug 'janko-m/vim-test'
+    Plug 'chrisbra/csv.vim'
+    Plug 'sheerun/vim-polyglot'
 endif
 
 call plug#end()
