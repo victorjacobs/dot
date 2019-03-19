@@ -83,7 +83,11 @@ function mvn-install
 end
 
 function gb
-    gim; git checkout $argv[1] 2> /dev/null ;or git checkout -b $argv[1]
+    git stash
+    git co master
+    git pull
+    git checkout $argv[1] 2> /dev/null ;or git checkout -b $argv[1]
+    git stash pop
 end
 
 if test -e $HOME/.config/fish/config.local.fish
