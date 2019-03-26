@@ -83,11 +83,21 @@ function mvn-install
 end
 
 function gb
-    git stash
+    set -l treeStatus (git status --porcelain) 
+    set -l newBranchName $argv[1]
+
+    if test -n treeStatus
+        echo "Stashing changes..."
+        git stash > /dev/null 2>&1
+    end
+
     git co master
     git pull
-    git checkout $argv[1] 2> /dev/null ;or git checkout -b $argv[1]
-    git stash pop
+    git checkout $newBranchName 2> /dev/null ;or git checkout -b $newBranchName
+
+    if test -n treeStatus
+        git stash pop > /dev/null 2>&1
+    end
 end
 
 if test -e $HOME/.config/fish/config.local.fish

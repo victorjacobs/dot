@@ -165,6 +165,7 @@ nnoremap <F5> :UndotreeToggle<cr>
 noremap H ^
 noremap L g_
 nnoremap K <nop>
+nnoremap <leader>d "_d
 
 if has('mac')
 	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
