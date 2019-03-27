@@ -83,10 +83,10 @@ function mvn-install
 end
 
 function gb
-    set -l treeStatus (git status --porcelain) 
+    set -l modifiedFiles (git ls-files -m) 
     set -l newBranchName $argv[1]
 
-    if test -n treeStatus
+    if test -n modifiedFiles
         echo "Stashing changes..."
         git stash > /dev/null 2>&1
     end
@@ -95,7 +95,7 @@ function gb
     git pull
     git checkout $newBranchName 2> /dev/null ;or git checkout -b $newBranchName
 
-    if test -n treeStatus
+    if test -n modifiedFiles
         git stash pop > /dev/null 2>&1
     end
 end
