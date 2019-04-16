@@ -15,15 +15,9 @@ if command -v ktlint > /dev/null 2>&1 && [[ ! -z $kt_files ]]; then
     git_add_changed_to_index
 fi
 
-tf_files=$(echo "$changed_files" | grep '\.tf\?$')
 if command -v terraform > /dev/null 2>&1 && [[ ! -z $tf_files ]]; then
     echo "Running terraform fmt..."
-
-    for file in ${tf_files}; do
-        terraform fmt $file
-        if [ $? -ne 0 ]; then exit 1; fi
-    done
-
+    terraform fmt
     git_add_changed_to_index
 fi
 
