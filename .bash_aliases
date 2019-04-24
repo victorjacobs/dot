@@ -2,3 +2,8 @@
 function config {
     /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
+
+alias ls = "ls -al --color=auto"
+alias free = "free -h"
+alias dmesg = "dmesg -T"
+alias df = "df -h"
