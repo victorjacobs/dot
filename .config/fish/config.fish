@@ -44,6 +44,7 @@ alias dit "docker exec -it"
 alias drm "docker run --rm -it"
 alias gic "git clone"
 alias gip "git pull"
+alias gir "cd (git rev-parse --show-cdup)"
 alias gim "git co master; git pull"
 
 if type -q exa
