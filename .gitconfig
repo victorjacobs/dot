@@ -1,6 +1,6 @@
 [user]
     name = Victor Jacobs
-    email = victor.jacobs@me.com
+    email = victor@vjcbs.dev
     signingkey = B490B254BDB9D657B7D6695B1B14FF4E55A4EB54
 [commit]
     gpgsign = true
