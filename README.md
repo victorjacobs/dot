@@ -12,7 +12,7 @@ This repository contains my dot files for:
     - On Mac, install vim from homebrew. That version is compiled with a feature flag 'mac', to detect when running on a Mac
 2. Run following:
 ```bash
-curl -Lks victorjacobs.me/dot.sh | bash
+curl -Lks vjcbs.dev/dot.sh | bash
 ```
 
 ## References
