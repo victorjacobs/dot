@@ -9,7 +9,7 @@ if not functions -q fisher
         echo "Fisher install failed, checksums don't match"
     else
         echo "Downloading fisher..."
-        set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+        set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME/.config
         curl $FISHER_URL --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
         fish -c fisher
     end
@@ -99,6 +99,12 @@ function gb
     if test -n modifiedFiles
         git stash pop > /dev/null 2>&1
     end
+end
+
+if type -q gpgconf
+	gpgconf --launch gpg-agent
+	set -e SSH_AUTH_SOCK
+	set -U -x SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
 end
 
 if test -e $HOME/.config/fish/config.local.fish
