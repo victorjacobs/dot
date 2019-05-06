@@ -1,17 +1,11 @@
 # Dot files
 
-This repository contains my dot files for:
-
-- fish
-- vim
-- git
-- gpg
+This repository contains my dot files.
 
 ## Installation
 
 1. Install git and curl
-    - On Mac, install vim from homebrew. That version is compiled with a feature flag 'mac', to detect when running on a Mac
-2. Run following:
+2. Run
 ```bash
 curl -Lks vjcbs.dev/dot.sh | bash
 ```
