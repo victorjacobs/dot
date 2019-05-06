@@ -16,7 +16,7 @@
 [alias]
     co = checkout
     ci = commit
-    st = status
+    st = status -sb
     br = branch
     lo = log --oneline
     dt = difftool

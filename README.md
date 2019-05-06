@@ -5,6 +5,7 @@ This repository contains my dot files for:
 - fish
 - vim
 - git
+- gpg
 
 ## Installation
 
