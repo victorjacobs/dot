@@ -7,8 +7,8 @@ if [[ ! -d "$repo_path/.git" ]]; then
     exit 1
 fi
 
-cd $repo_path/.git/hooks
+cd "$repo_path/.git/hooks" || exit
 echo "Removing git hooks to install new ones:"
-rm -v $hooks_to_remove
-cd ../..
+rm -v "$hooks_to_remove"
+cd ../.. || exit
 git init
