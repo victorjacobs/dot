@@ -31,6 +31,7 @@ Plug 'dag/vim-fish'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-visual-star-search'
 Plug 'elzr/vim-json'
+Plug 'editorconfig/editorconfig-vim'
 
 if has('mac')
     Plug 'terryma/vim-expand-region'
@@ -48,7 +49,6 @@ if has('mac')
     Plug 'janko-m/vim-test'
     Plug 'chrisbra/csv.vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'editorconfig/editorconfig-vim'
 endif
 
 call plug#end()
@@ -169,11 +169,11 @@ nnoremap K <nop>
 nnoremap <leader>d "_d
 
 if has('mac')
-	nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-	nmap <silent> <C-j> <Plug>(ale_next_wrap)
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-	autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
-	autocmd FileType go map <F1> <Plug>(go-doc)
+    autocmd FileType go nmap <leader>i :w!<cr><Plug>(go-install)
+    autocmd FileType go map <F1> <Plug>(go-doc)
 end
 
 command! W w !sudo tee % > /dev/null

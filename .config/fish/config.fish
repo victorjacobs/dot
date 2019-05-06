@@ -84,12 +84,14 @@ function mvn-install
 end
 
 function gb
-    set -l modifiedFiles (git ls-files -m) 
+    # TODO fix edgecases and re-enable stashing
+    set -l modifiedFiles (git ls-files -m)
     set -l newBranchName $argv[1]
 
     if test -n modifiedFiles
+        echo $modifiedFiles
         echo "Stashing changes..."
-        git stash > /dev/null 2>&1
+        # git stash > /dev/null 2>&1
     end
 
     git co master
@@ -97,14 +99,14 @@ function gb
     git checkout $newBranchName 2> /dev/null ;or git checkout -b $newBranchName
 
     if test -n modifiedFiles
-        git stash pop > /dev/null 2>&1
+        # git stash pop > /dev/null 2>&1
     end
 end
 
 if type -q gpgconf
-	gpgconf --launch gpg-agent
-	set -e SSH_AUTH_SOCK
-	set -U -x SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
+    gpgconf --launch gpg-agent
+    set -e SSH_AUTH_SOCK
+    set -U -x SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
 end
 
 if test -e $HOME/.config/fish/config.local.fish
