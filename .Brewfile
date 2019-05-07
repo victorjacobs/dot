@@ -6,6 +6,7 @@ tap "shyiko/ktlint"
 
 cask "qlmarkdown"
 
+brew "ansible"
 brew "ansible-lint"
 brew "bash"
 brew "bat"
@@ -29,3 +30,4 @@ brew "wget"
 brew "shyiko/ktlint/ktlint"
 brew "hadolint"
 brew "tig"
+brew "node"
