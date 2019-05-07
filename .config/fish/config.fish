@@ -19,7 +19,6 @@ set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
-set -x GPG_TTY (tty)
 
 set -g theme_display_date no
 
@@ -42,10 +41,13 @@ alias d "docker"
 alias dl "docker ps -l -q"
 alias dit "docker exec -it"
 alias drm "docker run --rm -it"
-alias gic "git clone"
+
+alias gic "git commit"
 alias gip "git pull"
 alias gir "cd (git rev-parse --show-cdup)"
 alias gim "git co master; git pull"
+alias gis "git st"
+alias gil "git lo"
 
 if type -q exa
     alias ls "exa -l"
@@ -107,6 +109,7 @@ if type -q gpgconf
     gpgconf --launch gpg-agent
     set -e SSH_AUTH_SOCK
     set -U -x SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
+    set -x GPG_TTY (tty)
 end
 
 if test -e $HOME/.config/fish/config.local.fish
