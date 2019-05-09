@@ -49,6 +49,7 @@ if has('mac')
     Plug 'janko-m/vim-test'
     Plug 'chrisbra/csv.vim'
     Plug 'sheerun/vim-polyglot'
+    Plug 'tpope/vim-unimpaired'
 endif
 
 call plug#end()
