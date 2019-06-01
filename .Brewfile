@@ -5,6 +5,7 @@ tap "homebrew/services"
 tap "shyiko/ktlint"
 
 cask "qlmarkdown"
+cask "docker"
 
 brew "ansible"
 brew "ansible-lint"
