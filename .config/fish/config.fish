@@ -23,7 +23,7 @@ set -x LC_CTYPE en_US.UTF-8
 set -g theme_display_date no
 
 if test -e /usr/libexec/java_home
-    set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+    set -x JAVA_HOME (/usr/libexec/java_home -v 12)
 end
 
 if test -d $HOME/bin
