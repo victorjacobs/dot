@@ -25,5 +25,4 @@
     default = current
 [url "git@github.com:"]
     insteadOf = https://github.com/
-[includeIf "gitdir/i:~/n26/"]
-    path = ~/.gitconfig.n26
+
