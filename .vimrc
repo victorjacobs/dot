@@ -50,6 +50,10 @@ if has('mac')
     Plug 'chrisbra/csv.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'tpope/vim-unimpaired'
+    Plug 'jez/vim-github-hub'
+    Plug 'tpope/vim-endwise'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'kien/ctrlp.vim'
 endif
 
 call plug#end()
@@ -84,7 +88,7 @@ let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'active': {
             \   'left': [ ['mode', 'paste'],
-            \             ['fugitive', 'readonly', 'filename', 'modified'] ],
+            \             ['fugitive', 'readonly', 'relativepath', 'modified'] ],
             \   'right': [ [ 'lineinfo' ], ['percent'] ]
             \ },
             \ 'component': {
@@ -163,6 +167,7 @@ noremap <leader>rn :setlocal relativenumber!<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap t :Files<cr>
 noremap <C-o> :NERDTreeToggle<cr>
+noremap ,n :NERDTreeFind<CR>
 nnoremap <F5> :UndotreeToggle<cr>
 noremap H ^
 noremap L g_
