@@ -41,6 +41,7 @@ alias d "docker"
 alias dl "docker ps -l -q"
 alias dit "docker exec -it"
 alias drm "docker run --rm -it"
+alias g "git"
 
 alias gic "git commit"
 alias gip "git pull"
@@ -83,6 +84,10 @@ end
 
 function mvn-install
     mvn clean install -U -pl $argv -am -Dmaven.test.skip=true
+end
+
+function gbr
+    git branch --sort=-committerdate | head -n 10
 end
 
 function gb
