@@ -183,4 +183,5 @@ if has('mac')
 end
 
 command! W w !sudo tee % > /dev/null
+command! JF %!jq .
 

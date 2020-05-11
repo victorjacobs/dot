@@ -9,5 +9,5 @@ trim_trailing_whitespace = true
 [*.go]
 indent_style = tab
 
-[*.{json,md,yaml,yml,js}]
+[*.{json,md,yaml,yml,js,rb},.watchmanconfig]
 indent_size = 2
