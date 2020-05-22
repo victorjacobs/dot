@@ -67,7 +67,7 @@ end
 alias config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 if type -q hub
-    alias gpr "git push; git pull-request"
+    alias gpr "git pr show 2>&1 || git pull-request -op"
     eval (hub alias -s)
 end
 
