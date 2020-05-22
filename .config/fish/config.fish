@@ -26,6 +26,10 @@ if test -e /usr/libexec/java_home
     set -x JAVA_HOME (/usr/libexec/java_home -v 12)
 end
 
+if test -e /usr/lib/jvm/default
+    set -x JAVA_HOME /usr/lib/jvm/default
+end
+
 if test -d $HOME/bin
     set -gx PATH $HOME/bin $PATH
 end

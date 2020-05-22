@@ -1,0 +1,16 @@
+initscript {
+  repositories {
+     jcenter()
+  }
+
+  dependencies {
+    classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+  }
+}
+
+allprojects {
+  apply plugin: com.github.benmanes.gradle.versions.VersionsPlugin
+  dependencyUpdates {
+    // configure the task, for example wrt. resolution strategies
+  }
+}
