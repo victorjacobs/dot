@@ -95,23 +95,21 @@ function gbr
 end
 
 function gb
-    # TODO fix edgecases and re-enable stashing
-    set -l modifiedFiles (git ls-files -m)
-    set -l newBranchName $argv[1]
-
-    if test -n modifiedFiles
-        echo $modifiedFiles
-        echo "Stashing changes..."
-        # git stash > /dev/null 2>&1
-    end
-
     git co master
     git pull
     git checkout $newBranchName 2> /dev/null ;or git checkout -b $newBranchName
+end
 
-    if test -n modifiedFiles
-        # git stash pop > /dev/null 2>&1
+function gco -d "Bring git branch up to date before checking it out"
+    set current_branch (git rev-parse --abbrev-ref HEAD)
+
+    if test $argv = $current_branch
+      echo "Already there! Fast-forwarding"
+      git pull --ff-only
+      return
     end
+
+    git fetch origin $argv:$argv && git checkout $argv
 end
 
 if type -q gpgconf
