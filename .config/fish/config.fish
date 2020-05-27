@@ -95,6 +95,8 @@ function gbr
 end
 
 function gb
+    set -l newBranchName $argv[1]
+
     git co master
     git pull
     git checkout $newBranchName 2> /dev/null ;or git checkout -b $newBranchName
