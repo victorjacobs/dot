@@ -90,8 +90,13 @@ function mvn-install
     mvn clean install -U -pl $argv -am -Dmaven.test.skip=true
 end
 
-function gbr
-    git branch --sort=-committerdate | head -n 10
+if type -q fzf
+    function gbr
+        git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" \
+        | fzf --reverse --nth=1 --preview 'git log --patch --color {1}...{1}~3' \
+        | awk '{print $1}' \
+        | xargs git checkout
+    end
 end
 
 function gb
