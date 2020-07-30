@@ -5,6 +5,7 @@ tap "homebrew/services"
 
 cask "qlmarkdown"
 cask "docker"
+cask "monitorcontrol"
 
 brew "ansible"
 brew "ansible-lint"
