@@ -7,7 +7,7 @@ This repository contains my dot files.
 1. Install git and curl
 2. Run
 ```bash
-curl -Lks vjcbs.dev/dot.sh | bash
+curl -Lks dot.vjcbs.dev/setup.sh | bash
 ```
 
 ## References
