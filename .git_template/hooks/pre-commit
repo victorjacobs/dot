@@ -3,7 +3,7 @@ git_add_changed_to_index() {
     git diff --name-only --cached | xargs git add
 }
 
-changed_files=$(git diff --name-only --cached --relative)
+changed_files=$(git diff --diff-filter=ACMR --name-only --cached --relative)
 
 kt_files=$(echo "$changed_files" | grep '\.kt[s"]\?$')
 if command -v ktlint > /dev/null 2>&1 && [[ -n $kt_files ]]; then
