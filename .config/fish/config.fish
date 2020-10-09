@@ -122,7 +122,7 @@ end
 if type -q gpgconf
     gpgconf --launch gpg-agent
     set -e SSH_AUTH_SOCK
-    set -U -x SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
+    set -U -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     set -x GPG_TTY (tty)
 end
 
