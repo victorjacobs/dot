@@ -12,7 +12,7 @@ if config checkout; then
 else
     echo "Backing up pre-existing dot files..."
     
-    for file in $(config checkout 2>&1 | grep -E "\s{8}" | awk '{$1=$1;print}'); do
+    for file in $(config checkout 2>&1 | grep -E "^\s+" | awk '{$1=$1;print}'); do
         echo "Moving $file"
         mkdir -p .config-backup/$(dirname $file)
         mv $file .config-backup/$file
