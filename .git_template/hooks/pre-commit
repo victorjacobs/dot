@@ -27,9 +27,11 @@ fi
 
 go_files=$(echo "$changed_files" | grep '\.go\?$')
 if command -v go > /dev/null 2>&1 && [[ -n $go_files ]]; then
-    echo "Running go fmt"
+    echo "Running go fmt..."
 
-    if ! go fmt "$go_files"; then exit 1; fi
+    for file in ${go_files}; do
+        if ! go fmt "$file"; then exit 1; fi
+    done
 
     git_add_changed_to_index
 fi
