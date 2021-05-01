@@ -125,7 +125,3 @@ if type -q gpgconf
     set -U -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     set -x GPG_TTY (tty)
 end
-
-if test -e $HOME/.config/fish/config.local.fish
-    source $HOME/.config/fish/config.local.fish
-end
