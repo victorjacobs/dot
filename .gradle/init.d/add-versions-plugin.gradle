@@ -1,6 +1,6 @@
 initscript {
   repositories {
-     jcenter()
+     mavenCentral()
   }
 
   dependencies {
