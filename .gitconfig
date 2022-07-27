@@ -1,6 +1,6 @@
 [user]
     name = Victor Jacobs
-    email = victor@vjcbs.dev
+    email = victor@vjcbs.be
     signingkey = B490B254BDB9D657B7D6695B1B14FF4E55A4EB54
 [commit]
     gpgsign = true
@@ -27,6 +27,5 @@
     default = current
 [url "git@github.com:"]
     insteadOf = https://github.com/
-
 [pull]
 	rebase = false
