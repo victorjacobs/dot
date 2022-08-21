@@ -1,4 +1,9 @@
-source $(brew --prefix)/share/antigen/antigen.zsh
+if [[ "$(uname)" == "Darwin" ]]; then
+    source $(brew --prefix)/share/antigen/antigen.zsh
+else
+    source /usr/share/zsh/share/antigen.zsh
+fi
+
 eval "$(starship init zsh)"
 
 # Antigen plugins
