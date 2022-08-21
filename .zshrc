@@ -1,7 +1,12 @@
+# Load Antigen
 if [[ "$(uname)" == "Darwin" ]]; then
     source $(brew --prefix)/share/antigen/antigen.zsh
 else
-    source /usr/share/zsh/share/antigen.zsh
+    if [ -d "/usr/share/zsh-antigen" ]; then
+        source /usr/share/zsh-antigen/antigen.zsh
+    else
+        source /usr/share/zsh/share/antigen.zsh
+    fi
 fi
 
 eval "$(starship init zsh)"
