@@ -6,8 +6,6 @@ cask "gpg-suite"
 
 brew "ansible"
 brew "ansible-lint"
-brew "bat"
-brew "cloc"
 brew "diff-so-fancy"
 brew "exa"
 brew "fd"
