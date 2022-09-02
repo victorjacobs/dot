@@ -27,6 +27,8 @@ function gir () {
 
 if type "exa" > /dev/null; then
     alias ls="exa -l"
+else
+    alias ls="ls --color=auto -lh"
 fi
 
 if [ -d "$HOME/bin" ]; then
@@ -40,5 +42,10 @@ fi
 export EDITOR="vim"
 export GPG_TTY=$(tty)
 
+# Vim mode
 export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 bindkey -v
+
+# Bind substring history to up and down arrow
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
