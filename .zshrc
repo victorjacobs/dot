@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Load Antigen
 if [[ "$(uname)" == "Darwin" ]]; then
     source $(brew --prefix)/share/antigen/antigen.zsh
@@ -9,9 +16,8 @@ else
     fi
 fi
 
-eval "$(starship init zsh)"
-
 # Antigen plugins
+antigen theme romkatv/powerlevel10k
 antigen bundle hlissner/zsh-autopair
 antigen bundle agkozak/zsh-z
 antigen bundle zsh-users/zsh-autosuggestions
@@ -62,3 +68,6 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 # setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
