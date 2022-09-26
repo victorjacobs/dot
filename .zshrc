@@ -43,6 +43,7 @@ fi
 
 if [ -d "$HOME/go" ]; then
     export PATH="$HOME/go/bin:$PATH"
+    export GOPATH="$HOME/go"
 fi
 
 export EDITOR="vim"
