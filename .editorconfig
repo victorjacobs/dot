@@ -10,5 +10,5 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 2
 
-[*.{json,md,yaml,yml,js,rb,lua}]
+[*.{json,md,yaml,yml,js,rb,lua,proto}]
 indent_size = 2
